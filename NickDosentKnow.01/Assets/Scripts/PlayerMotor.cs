@@ -15,7 +15,14 @@ public class PlayerMotor : MonoBehaviour {
 
     public void MoveToPoint(Vector3 point)
     {
+        agent.stoppingDistance = 0f;
         agent.SetDestination(point);
     }
 
+    public void MoveToSelected(Interactable focus)
+    {
+        agent.stoppingDistance = focus.radius * .8f;
+        agent.SetDestination(focus.transform.position);
+        
+    }
 }

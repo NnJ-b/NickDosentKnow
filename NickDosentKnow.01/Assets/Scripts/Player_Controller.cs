@@ -11,6 +11,7 @@ public class Player_Controller : MonoBehaviour {
     public LayerMask moveMask;
     public LayerMask interactMask;
     PlayerMotor motor;
+    public Transform selected;
 
     //standard veriables
     private Vector3 clickPosistion;
@@ -27,9 +28,19 @@ public class Player_Controller : MonoBehaviour {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 100f, moveMask))
+            if(Physics.Raycast(ray, out hit, 100f))
             {
-               motor.MoveToPoint(hit.point);
+                if (hit.collider.tag == "Ground")
+                {
+                    selected = null;
+                    motor.MoveToPoint(hit.point);
+                }
+                if (hit.collider.tag == "Interactable")
+                {
+                    Interactable focus = hit.collider.GetComponent<Interactable>();
+                    selected = hit.collider.transform;
+                    motor.MoveToSelected(focus);
+                }
             }
         }
     }
