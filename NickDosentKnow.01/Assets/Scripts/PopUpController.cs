@@ -15,7 +15,7 @@ public class PopUpController : MonoBehaviour {
     {
         cam = Camera.main;
         rt = GetComponent<RectTransform>();
-       // offset = RectTransformUtility.WorldToScreenPoint(cam, parent.transform.position);
+        parent = transform.parent.parent.gameObject;
 	}
 	
 	// Update is called once per frame
