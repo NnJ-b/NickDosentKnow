@@ -25,6 +25,7 @@ public class Player_Controller : MonoBehaviour {
     }
     private void Update()
     {
+        //Movement
         if(Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -48,22 +49,26 @@ public class Player_Controller : MonoBehaviour {
                 }
            }
         }
+        //popup controll
         if (prevSelected != null && prevSelected != selected)
         {
-            prevSelected.Find("Canvas").gameObject.SetActive(false);
+            //prevSelected.Find("Canvas").gameObject.SetActive(false);
+            prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting", false);
             prevSelected = null;
         }
         if (selected != null)
         {
             if(selected.tag == "Interactable" && Vector3.Distance(transform.position, selected.transform.position) < interactDist)
             {
-                selected.Find("Canvas").gameObject.SetActive(true);
+                // selected.Find("Canvas").gameObject.SetActive(true);
+                prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting", true);
             }
             prevSelected = selected;
         }
         if(selected == null && prevSelected != null)
         {
-            prevSelected.Find("Canvas").gameObject.SetActive(false);
+            //prevSelected.Find("Canvas").gameObject.SetActive(false);
+            prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting",false);
             prevSelected = null;
         }
     }

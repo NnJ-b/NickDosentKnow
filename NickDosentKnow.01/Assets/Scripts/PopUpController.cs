@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PopUpController : MonoBehaviour {
 
-    public GameObject parent;
+    public GameObject goParent;
     public Vector2 offset;
     private RectTransform rt;
     private Camera cam;
+    public Animator anim;
     
 
 	// Use this for initialization
@@ -15,15 +16,16 @@ public class PopUpController : MonoBehaviour {
     {
         cam = Camera.main;
         rt = GetComponent<RectTransform>();
-        parent = transform.parent.parent.gameObject;
+        goParent = transform.parent.parent.gameObject;
+        anim = transform.parent.GetComponent<Animator>();
 	}
 	
-	// Update is called once per frame
+	
 	void Update ()
     {
-		if (parent != null)
+		if (goParent != null)
         {
-            Vector2 pos = RectTransformUtility.WorldToScreenPoint(cam,parent.transform.position);
+            Vector2 pos = RectTransformUtility.WorldToScreenPoint(cam,goParent.transform.position);
             rt.position = pos + offset; 
         }
 	}

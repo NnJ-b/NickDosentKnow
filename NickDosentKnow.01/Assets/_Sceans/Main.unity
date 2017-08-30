@@ -454,7 +454,7 @@ Prefab:
     - target: {fileID: 114062767745418884, guid: 0a250b9fe0c68524697fb97f4ec030a0,
         type: 2}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 23
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 114062767745418884, guid: 0a250b9fe0c68524697fb97f4ec030a0,
         type: 2}
