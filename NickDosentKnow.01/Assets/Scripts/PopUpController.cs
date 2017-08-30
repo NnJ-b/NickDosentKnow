@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour {
 
@@ -9,6 +10,10 @@ public class PopUpController : MonoBehaviour {
     private RectTransform rt;
     private Camera cam;
     public Animator anim;
+    public Button farmButton;
+    public Button barraacksButton;
+    public GameObject farmPre;
+    public GameObject barrPre;
     
 
 	// Use this for initialization
@@ -18,9 +23,23 @@ public class PopUpController : MonoBehaviour {
         rt = GetComponent<RectTransform>();
         goParent = transform.parent.parent.gameObject;
         anim = transform.parent.GetComponent<Animator>();
+
+        farmButton.onClick.AddListener(instFarm);
+        barraacksButton.onClick.AddListener(instBarr);
 	}
 	
-	
+	void instFarm ()
+    {
+        //GameObject go = (GameObject)Instantiate(farmPre, transform.parent.parent.transform) as GameObject;
+        //go.transform.parent = go.transform;
+        Instantiate(farmPre,transform.parent.parent.transform.position,Quaternion.Euler(0,0,0),null);
+    }
+
+    void instBarr()
+    {
+        GameObject go = (GameObject)Instantiate(barrPre,transform.parent.parent.transform);
+    }
+
 	void Update ()
     {
 		if (goParent != null)

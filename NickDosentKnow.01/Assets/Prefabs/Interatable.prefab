@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 223279654028267852}
   - component: {fileID: 114637118493373354}
   - component: {fileID: 114952833159717826}
+  - component: {fileID: 95790851443503842}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -218,6 +219,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95790851443503842
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1291590241754582}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fec3239c1e04f16448f022898bfa9c9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114062767745418884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,7 +255,11 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: What would you like to build?
+  m_text: 'What would
+
+    you like to
+
+    build?'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
@@ -341,8 +363,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6fd4df1f4df4f40beca168f7d550bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 0}
-  offset: {x: 0, y: 0}
+  goParent: {fileID: 1792439031341962}
+  offset: {x: 74.45, y: 72.17}
+  anim: {fileID: 95790851443503842}
+  farmButton: {fileID: 114257299569938980}
+  barraacksButton: {fileID: 114761782649113648}
+  farmPre: {fileID: 1323040824311272, guid: 953a0d3ed6136e9439cac7719a5a33ca, type: 2}
+  barrPre: {fileID: 1674663440722268, guid: 09a7341f2e1ce954293a2534e6c4a764, type: 2}
 --- !u!114 &114152172990527772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -688,7 +715,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 800, y: 800}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -733,7 +760,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114152172990527772}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114819774588281354
