@@ -32,7 +32,8 @@ public class PopUpController : MonoBehaviour {
     {
         //GameObject go = (GameObject)Instantiate(farmPre, transform.parent.parent.transform) as GameObject;
         //go.transform.parent = go.transform;
-        Instantiate(farmPre,transform.parent.parent.transform.position,Quaternion.Euler(0,0,0),null);
+        Instantiate(farmPre,new Vector3(goParent.transform.position.x, 0.0001f, goParent.transform.position.z), Quaternion.Euler(0,0,0),null);
+        Destroy(goParent);
     }
 
     void instBarr()
