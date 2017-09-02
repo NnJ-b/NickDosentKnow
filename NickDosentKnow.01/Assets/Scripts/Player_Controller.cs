@@ -50,6 +50,7 @@ public class Player_Controller : MonoBehaviour {
            }
         }
         //popup controll
+
         if (prevSelected != null && prevSelected != selected)
         {
             //prevSelected.Find("Canvas").gameObject.SetActive(false);
