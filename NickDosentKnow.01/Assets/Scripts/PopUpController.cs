@@ -38,7 +38,7 @@ public class PopUpController : MonoBehaviour {
 
     void instBarr()
     {
-        GameObject go = (GameObject)Instantiate(barrPre,transform.parent.parent.transform);
+       // GameObject go = (GameObject)Instantiate(barrPre,transform.parent.parent.transform);
     }
 
 	void Update ()

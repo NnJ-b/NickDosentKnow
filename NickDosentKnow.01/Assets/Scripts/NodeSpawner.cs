@@ -19,6 +19,8 @@ public class NodeSpawner : MonoBehaviour {
 
     private Vector3 spawnPoint;
 
+    public int numberOfSpawns; 
+
     private void Start()
     {
         ground = GameObject.FindGameObjectWithTag("Ground");
@@ -27,13 +29,17 @@ public class NodeSpawner : MonoBehaviour {
         groundY = ground.GetComponent<Renderer>().bounds.size.y;
         groundZ = ground.GetComponent<Renderer>().bounds.size.z;
 
-        InvokeRepeating("spawnNode",0.0f,1f);
+        while(numberOfSpawns>0)
+        {
+            spawnNode();
+            numberOfSpawns--;
+        }
     }
 
     void spawnNode ()
     {
-        spawnPoint = new Vector3(Random.Range(0,groundX/2f *.8f),1, Random.Range(0,groundZ/2 *.8f));
-        Debug.Log(spawnPoint);
+        spawnPoint = new Vector3(Random.Range((groundX/-2f)*.8f,(groundX/2f) *.8f),1, Random.Range((groundZ/-2f)*.8f,(groundZ/2) *.8f));
+        //Debug.Log(spawnPoint);
         Instantiate(nodePre,spawnPoint, Quaternion.Euler(0, 0, 0), null);
     }
 }

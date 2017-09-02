@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour {
     {
         agent.stoppingDistance = 0f;
         agent.SetDestination(point);
+        Debug.Log(point);
     }
 
     public void MoveToSelected(Interactable focus)

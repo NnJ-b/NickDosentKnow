@@ -24,7 +24,6 @@ public class PointTracker : MonoBehaviour {
             score = score + agent.pointPlyer;
         }
         score = Mathf.RoundToInt(score);
-        Debug.Log(score);
     }
 
 
