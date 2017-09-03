@@ -30,9 +30,7 @@ public class PopUpController : MonoBehaviour {
 	
 	void instFarm ()
     {
-        //GameObject go = (GameObject)Instantiate(farmPre, transform.parent.parent.transform) as GameObject;
-        //go.transform.parent = go.transform;
-        Instantiate(farmPre,new Vector3(goParent.transform.position.x, 0.0001f, goParent.transform.position.z), Quaternion.Euler(0,0,0),null);
+        GameObject go = Instantiate(farmPre,new Vector3(goParent.transform.position.x, 9999f, goParent.transform.position.z), Quaternion.identity,null);
         Destroy(goParent);
     }
 

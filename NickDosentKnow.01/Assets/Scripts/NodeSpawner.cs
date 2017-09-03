@@ -36,10 +36,9 @@ public class NodeSpawner : MonoBehaviour {
         }
     }
 
-    void spawnNode ()
+    public void spawnNode ()
     {
-        spawnPoint = new Vector3(Random.Range((groundX/-2f)*.8f,(groundX/2f) *.8f),1, Random.Range((groundZ/-2f)*.8f,(groundZ/2) *.8f));
-        //Debug.Log(spawnPoint);
+        spawnPoint = new Vector3(Random.Range((groundX/-2f)*.8f,(groundX/2f) *.8f),99999f, Random.Range((groundZ/-2f)*.8f,(groundZ/2) *.8f));
         Instantiate(nodePre,spawnPoint, Quaternion.Euler(0, 0, 0), null);
     }
 }

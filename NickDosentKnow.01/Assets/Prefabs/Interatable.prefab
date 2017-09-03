@@ -701,6 +701,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
+  heightAdder: 1
+  NS: {fileID: 114211996803445390, guid: d9017a3e625cd2f449e6f421ec137740, type: 2}
 --- !u!114 &114637118493373354
 MonoBehaviour:
   m_ObjectHideFlags: 1
