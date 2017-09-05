@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;    
 
 public class PointTracker : MonoBehaviour {
 
     public List<PointAgent> agents;
     public float score = 10f;
+    private float scoreRounded;
+    public TextMeshProUGUI scoreTextMP;
 
     private void Start()
     {
@@ -15,6 +19,7 @@ public class PointTracker : MonoBehaviour {
         }
 
         InvokeRepeating("PointUpdate",0f,5f);
+        
     }
 
     void PointUpdate()
@@ -23,7 +28,9 @@ public class PointTracker : MonoBehaviour {
         {
             score = score + agent.pointPlyer;
         }
-        score = Mathf.RoundToInt(score);
+        scoreRounded = Mathf.RoundToInt(score);
+        scoreTextMP.SetText(scoreRounded.ToString());
+         
     }
 
 
