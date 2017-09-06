@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour {
                 Destroy(this);
             }
         }
+        //get distance to nearest node and if to close spawn elseware
     }
 
 
