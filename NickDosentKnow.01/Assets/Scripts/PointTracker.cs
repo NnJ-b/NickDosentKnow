@@ -8,11 +8,14 @@ public class PointTracker : MonoBehaviour {
 
     public List<PointAgent> agents;
     public float score = 10f;
+    public float scorePlaceHolder =1f;
     private float scoreRounded;
+    public TextMeshProUGUI scoreAbreviationMP;
     public TextMeshProUGUI scoreTextMP;
 
     private void Start()
     {
+        scorePlaceHolder = 1f;
         if (agents == null)
         {
             agents = new List<PointAgent>();
@@ -24,13 +27,24 @@ public class PointTracker : MonoBehaviour {
 
     void PointUpdate()
     {
-        foreach(PointAgent agent in agents)
+        foreach (PointAgent agent in agents)
         {
             score = score + agent.pointPlyer;
         }
-        scoreRounded = Mathf.RoundToInt(score);
-        scoreTextMP.SetText(scoreRounded.ToString());
-         
+        scoreRounded = score/scorePlaceHolder; //Mathf.RoundToInt(score);
+        scoreTextMP.SetText(scoreRounded.ToString("000.00"));
+        if (score / scorePlaceHolder > 1000f)
+        {
+            scorePlaceHolder = scorePlaceHolder * 1000f;
+            scoreRounded = score / scorePlaceHolder;
+            scoreTextMP.SetText(scoreRounded.ToString("000.00"));
+        }
+        if (scorePlaceHolder==1000f)
+        {
+            scoreAbreviationMP.SetText("k");
+        }
+
+
     }
 
 

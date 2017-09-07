@@ -11,7 +11,7 @@ public class PointAgent : MonoBehaviour {
     private void Start()
     {
         tracker = FindObjectOfType<PointTracker>();
-        pointPlyer = (tracker.score + .00001f) * plyerPlyer;
+        pointPlyer = ((tracker.score + .00001f) * plyerPlyer)/tracker.scorePlaceHolder;
         tracker.agents.Add(this);
         
 
