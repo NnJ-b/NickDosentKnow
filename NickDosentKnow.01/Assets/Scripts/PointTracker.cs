@@ -39,12 +39,29 @@ public class PointTracker : MonoBehaviour {
             scoreRounded = score / scorePlaceHolder;
             scoreTextMP.SetText(scoreRounded.ToString("000.00"));
         }
+        if (scorePlaceHolder==1f)
+        {
+            scoreAbreviationMP.SetText(" ");
+        }
         if (scorePlaceHolder==1000f)
         {
             scoreAbreviationMP.SetText("k");
         }
+        if (scorePlaceHolder==1000000f)
+        {
+            scoreAbreviationMP.SetText("Mill");
+        }
+        
 
+    }
 
+    public void SpendMoney(float pointPlyer)
+    {
+        if(score/scorePlaceHolder < scorePlaceHolder)
+        {
+            scorePlaceHolder = scorePlaceHolder / 1000f;
+        }
+        PointUpdate();
     }
 
 

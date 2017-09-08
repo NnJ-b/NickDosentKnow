@@ -13,6 +13,7 @@ public class Player_Controller : MonoBehaviour {
     PlayerMotor motor;
     public Transform selected;
     private Transform prevSelected;
+    public LayerMask ground;
 
     //standard veriables
     private Vector3 clickPosistion;
@@ -22,6 +23,21 @@ public class Player_Controller : MonoBehaviour {
     {
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
+    }
+    void Awake()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        {
+            if (hit.collider.tag == "Ground")
+            {
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+              //  transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            }
+        }
+        
+        
     }
     private void Update()
     {
@@ -33,7 +49,7 @@ public class Player_Controller : MonoBehaviour {
 
            if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1)==false)
            {
-                if (Physics.Raycast(ray, out hit, 100f))
+                if (Physics.Raycast(ray, out hit, 500f))
                 {
                     if (hit.collider.tag == "Ground")
                     {
