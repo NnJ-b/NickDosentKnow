@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NodeSpawner : MonoBehaviour {
 
-    private GameObject ground;
+    public GameObject ground;
     public GameObject nodePre;
 
     private float groundX;
@@ -25,11 +25,15 @@ public class NodeSpawner : MonoBehaviour {
     {
         ground = GameObject.FindGameObjectWithTag("Ground");
 
-        groundX = ground.GetComponent<Renderer>().bounds.size.x;
-        groundY = ground.GetComponent<Renderer>().bounds.size.y;
-        groundZ = ground.GetComponent<Renderer>().bounds.size.z;
+        groundX = ground.GetComponent<Terrain>().terrainData.size.x;
+        groundY = ground.GetComponent<Terrain>().terrainData.size.y;
+        groundZ = ground.GetComponent<Terrain>().terrainData.size.z;
 
-        while(numberOfSpawns>0)
+        // groundX = ground.GetComponent<Renderer>().bounds.size.x;
+        // groundY = ground.GetComponent<Renderer>().bounds.size.y;
+        // groundZ = ground.GetComponent<Renderer>().bounds.size.z;
+
+        while (numberOfSpawns>0)
         {
             spawnNode();
             numberOfSpawns--;
