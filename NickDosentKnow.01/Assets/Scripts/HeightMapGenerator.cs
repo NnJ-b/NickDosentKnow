@@ -14,8 +14,8 @@ public class RandomTerrainGenerator : ScriptableWizard
 
     private void OnEnable()
     {
-        HM = Random.Range(0, 10);
-        divRange = Random.Range(10, 15);
+        HM = Random.Range(0, 25);
+        divRange = Random.Range(8, 15);
     }
 
     [MenuItem("Terrain/Generate Random Terrain")]
