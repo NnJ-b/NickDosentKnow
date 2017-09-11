@@ -7,10 +7,10 @@ public class HeightmapGenerator : ScriptableWizard
 {
 
     //The higher the numbers, the more hills/mountains there are
-    private float HM = Random.Range(0, 40);
+    private float HM = Random.Range(0, 0);
 
     //The lower the numbers in the number range, the higher the hills/mountains will be...
-    private float divRange = Random.Range(6, 15);
+    private float divRange = Random.Range(1,1);
 
     [MenuItem("Terrain/Generate Random Terrain")]
     public static void CreateWizard(MenuCommand command)

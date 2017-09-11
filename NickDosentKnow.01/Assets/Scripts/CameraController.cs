@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
-    public Transform player;
+    public Transform player;// = GameObject.FindGameObjectWithTag("Player").transform;
 
     public Vector3 offset;
     //Zoom Veriables
@@ -21,6 +21,11 @@ public class CameraController : MonoBehaviour {
     public float pitchSpeed = 100f;
     public float pitchMin;
     public float pitchMax;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void Update()
     {

@@ -23,6 +23,7 @@ public class PointTracker : MonoBehaviour {
 
         InvokeRepeating("PointUpdate",0f,5f);
         
+        //find canvas score abreviationMP and ScoreTextMP
     }
 
     void PointUpdate()
