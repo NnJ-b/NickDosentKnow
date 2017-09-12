@@ -3,14 +3,20 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public class HeightmapGenerator : ScriptableWizard
+public class RandomTerrainGenerator : ScriptableWizard
 {
 
     //The higher the numbers, the more hills/mountains there are
-    private float HM = Random.Range(0, 0);
+    private float HM; //= Random.Range(0, 1);
 
     //The lower the numbers in the number range, the higher the hills/mountains will be...
-    private float divRange = Random.Range(1,1);
+    private float divRange;// = Random.Range(1,1);
+
+    private void OnEnable()
+    {
+        HM = Random.Range(2,7);
+        divRange = Random.Range(10,15);
+    }
 
     [MenuItem("Terrain/Generate Random Terrain")]
     public static void CreateWizard(MenuCommand command)

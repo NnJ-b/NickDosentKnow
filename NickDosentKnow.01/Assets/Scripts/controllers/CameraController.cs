@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour {
         zoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
         zoom = Mathf.Clamp(zoom, zoomMin, zoomMax);
 
-        yawInput -= Input.GetAxis("Horizontal") * yawSpeed * Time.deltaTime;
+        yawInput += Input.GetAxis("Horizontal") * yawSpeed * Time.deltaTime;
         pitchInput += Input.GetAxis("Vertical") * pitchSpeed * Time.deltaTime;
         pitchInput = Mathf.Clamp(pitchInput, pitchMin, pitchMax);
         
