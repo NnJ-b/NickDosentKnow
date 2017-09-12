@@ -16,8 +16,8 @@ public class PlayerSpawnerController : MonoBehaviour
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
                 GameObject go = Instantiate(PlayerPre, transform.position, Quaternion.identity, null);
-                Destroy(this);
             }
+            Destroy(gameObject);
         }
 
     }

@@ -11,7 +11,9 @@ public class PointTracker : MonoBehaviour {
     public float scorePlaceHolder =1f;
     private float scoreRounded;
     public TextMeshProUGUI scoreAbreviationMP;
+    public GameObject scoreAbreviationGO;
     public TextMeshProUGUI scoreTextMP;
+    public GameObject scoreTextGO;
 
     private void Start()
     {
@@ -22,8 +24,13 @@ public class PointTracker : MonoBehaviour {
         }
 
         InvokeRepeating("PointUpdate",0f,5f);
-        
+
+        // canvas = GameObject.Find("Canvas");
         //find canvas score abreviationMP and ScoreTextMP
+        scoreAbreviationGO = GameObject.FindGameObjectWithTag("ScoreAbreviation");
+        scoreTextGO = GameObject.FindGameObjectWithTag("ScoreText");
+        scoreAbreviationMP = scoreAbreviationGO.GetComponent<TextMeshProUGUI>();
+        scoreTextMP = scoreTextGO.GetComponent<TextMeshProUGUI>();
     }
 
     void PointUpdate()
