@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - ScoreText
   - ScoreAbreviation
+  - Enemy
   layers:
   - Default
   - TransparentFX

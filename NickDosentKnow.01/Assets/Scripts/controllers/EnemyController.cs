@@ -11,11 +11,22 @@ public class EnemyController : MonoBehaviour {
     public float maxDistance;
     public float findDistance;
     public float fightDistance;
+    public LayerMask ground;
 
     // Use this for initialization
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        Ray ray = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+        {
+            if (hit.collider.tag == "Ground")
+            {
+                transform.position = new Vector3(transform.position.x, hit.point.y, transform.position.z);
+                //  transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -24,6 +35,9 @@ public class EnemyController : MonoBehaviour {
         if(playerDistance>maxDistance)
         {
             Debug.Log("destroy self and respawn elseware");
+            isRoming = true;
+            isFighting = false;
+            isChassing = false;
         }
         else if(playerDistance>findDistance)
         {

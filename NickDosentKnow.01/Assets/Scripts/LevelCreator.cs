@@ -11,14 +11,15 @@ public class LevelCreator : MonoBehaviour {
 
     public void Awake()
     {
-        Instantiate(terrainPre, null);
+        Instantiate(terrainPre,null);
         Instantiate(playerSpawnerPre, null);
+        Instantiate(enemySpawnerpre, null);
     }
 
     private void Start()
     {
         
         Instantiate(nodeSpawnerPre, null);
-        Instantiate(enemySpawnerpre, null);
+
     }
 }

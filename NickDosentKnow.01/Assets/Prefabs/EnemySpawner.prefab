@@ -53,3 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerPre: {fileID: 1149963754467262, guid: db6405a6607c9d6438bed6ac354a18a1, type: 2}
   terrain: {fileID: 0}
+  ground:
+    serializedVersion: 2
+    m_Bits: 256

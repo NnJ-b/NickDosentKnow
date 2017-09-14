@@ -7,13 +7,14 @@ public class PlayerSpawnerController : MonoBehaviour
 {
     public GameObject PlayerPre;
     public Terrain terrain;
+    public LayerMask ground;
     // Use this for initialization
     void Start()
     {
         terrain = GameObject.FindGameObjectWithTag("Ground").GetComponent<Terrain>();
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity,ground))
         {
             if (hit.collider.tag == "Ground")
             {

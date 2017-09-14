@@ -25,7 +25,6 @@ public class RuntimeTerainGenerator : MonoBehaviour {
     //Our Generate Terrain function
     public void GenerateTerrain(Terrain t, float tileSize)
     {
-        TerrrainNavMesh.BuildNavMesh ();
         //Heights For Our Hills/Mountains
         float[,] hts = new float[t.terrainData.heightmapWidth, t.terrainData.heightmapHeight];
         for (int i = 0; i < t.terrainData.heightmapWidth; i++)
@@ -37,5 +36,6 @@ public class RuntimeTerainGenerator : MonoBehaviour {
         }
         Debug.LogWarning("DivRange: " + divRange + " , " + "HTiling: " + HM);
         t.terrainData.SetHeights(0, 0, hts);
+        TerrrainNavMesh.BuildNavMesh();
     }
 }

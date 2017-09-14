@@ -62,31 +62,16 @@ public class Player_Controller : MonoBehaviour {
                         selected = hit.collider.transform;
                         motor.MoveToSelected(focus);
                     }
+                    if (hit.collider.tag == "Enemy")
+                    {
+                        Interactable focus = hit.collider.GetComponent<Interactable>();
+                        selected = hit.collider.transform;
+                        motor.MoveToSelected(focus);
+                    }
                 }
            }
         }
         //popup controll
 
-        if (prevSelected != null && prevSelected != selected)
-        {
-            //prevSelected.Find("Canvas").gameObject.SetActive(false);
-            prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting", false);
-            prevSelected = null;
-        }
-        if (selected != null)
-        {
-            if(selected.tag == "Interactable" && Vector3.Distance(transform.position, selected.transform.position) < interactDist)
-            {
-                // selected.Find("Canvas").gameObject.SetActive(true);
-                prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting", true);
-            }
-            prevSelected = selected;
-        }
-        if(selected == null && prevSelected != null)
-        {
-            //prevSelected.Find("Canvas").gameObject.SetActive(false);
-            prevSelected.GetComponentInChildren<Animator>().SetBool("isInteracting",false);
-            prevSelected = null;
-        }
     }
 }
