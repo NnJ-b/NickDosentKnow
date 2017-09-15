@@ -100,10 +100,11 @@ MonoBehaviour:
   isRoming: 0
   maxDistance: 100
   findDistance: 50
-  fightDistance: 3
+  fightDistance: 5
   ground:
     serializedVersion: 2
     m_Bits: 256
+  agent: {fileID: 0}
 --- !u!114 &114558756775557434
 MonoBehaviour:
   m_ObjectHideFlags: 1

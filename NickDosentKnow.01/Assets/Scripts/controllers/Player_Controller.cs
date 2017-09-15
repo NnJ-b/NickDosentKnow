@@ -67,6 +67,7 @@ public class Player_Controller : MonoBehaviour {
                         Interactable focus = hit.collider.GetComponent<Interactable>();
                         selected = hit.collider.transform;
                         motor.MoveToSelected(focus);
+                        
                     }
                 }
            }

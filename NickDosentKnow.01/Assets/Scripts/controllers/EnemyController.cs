@@ -1,22 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour {
 
-    private Transform player;
+    private GameObject player;
     public bool isChassing;
     public bool isFighting;
     public bool isRoming;
     public float maxDistance;
     public float findDistance;
     public float fightDistance;
+    private float stopingdistance;
     public LayerMask ground;
+    public NavMeshAgent agent;
+    public float Health;
+    private float maxHealth;
+    private float originalSpeed;
+    private float minSpeed = 5f;
+    private float maxSpeed = 1.5f;
+    private Transform scale;
 
     // Use this for initialization
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        stopingdistance = 3f;
+        agent = GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player");
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
@@ -27,39 +38,79 @@ public class EnemyController : MonoBehaviour {
                 //  transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
             }
         }
+        Health = 100f;
+        maxHealth = Health;
+        //set speed based on player points
+        originalSpeed = agent.speed;
+
+        InvokeRepeating("Hurt", 0f, 5f); // temporary will be replaced by anim
     }
 
     private void FixedUpdate()
     {
-        float playerDistance = Vector3.Distance(transform.position, player.position);
+        float playerDistance = Vector3.Distance(transform.position, player.transform.position);
         if(playerDistance>maxDistance)
         {
-            Debug.Log("destroy self and respawn elseware");
-            isRoming = true;
-            isFighting = false;
-            isChassing = false;
+            NewLocation();
         }
         else if(playerDistance>findDistance)
         {
-            Debug.Log("roam");
-            isRoming = true;
-            isFighting = false;
-            isChassing = false;
+            Wander();
         }
         else if(playerDistance<findDistance && playerDistance>fightDistance)
         {
-            Debug.Log("Chase");
-            isRoming = false;
-            isFighting = false;
-            isChassing = true;
+            Chase();
         }
         else if(playerDistance < fightDistance)
         {
-            Debug.Log("Fight");
-            isRoming = false;
-            isFighting = true;
-            isChassing = false;
+            Fight();
         }
-        
+
+    }
+
+    void NewLocation()
+    {
+        Debug.Log("destroy self and respawn elseware");
+        isRoming = true;
+        isFighting = false;
+        isChassing = false;
+    }
+    void Wander()
+    {
+        Debug.Log("roam");
+        isRoming = true;
+        isFighting = false;
+        isChassing = false;
+    }
+    void Chase()
+    {
+        Debug.Log("Chase");
+        agent.stoppingDistance = 3f;
+        agent.SetDestination(player.transform.position);
+        isRoming = false;
+        isFighting = false;
+        isChassing = true;
+    }
+    void Fight()
+    {
+        Debug.Log("Fight");
+        isRoming = false;
+        isFighting = true;
+        isChassing = false;
+    }
+    void Hurt() //add float to reference by player anim
+    {
+        if (player.GetComponent<Player_Controller>().selected == this.transform)
+        {
+            Health = Health - 5f; //replace 5f with anim reference float
+            Debug.Log(Health);
+            //setspeedbased on helth
+            //set size based on health
+
+
+            //clamp speed to not exceed min and max
+            agent.speed = Mathf.Clamp(agent.speed, minSpeed, maxSpeed);
+
+        }
     }
 }
