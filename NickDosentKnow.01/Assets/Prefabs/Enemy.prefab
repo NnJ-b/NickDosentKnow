@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136836277321585926}
   - component: {fileID: 23578817288843294}
   - component: {fileID: 195334056193566354}
+  - component: {fileID: 114693281688361448}
   - component: {fileID: 114129043794455348}
   - component: {fileID: 114558756775557434}
   m_Layer: 0
@@ -51,7 +52,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1149963754467262}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -105,6 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   agent: {fileID: 0}
+  Health: 0
 --- !u!114 &114558756775557434
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,6 +121,17 @@ MonoBehaviour:
   radius: 3
   heightAdder: 0
   NS: {fileID: 0}
+--- !u!114 &114693281688361448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1149963754467262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e97a8124c6115fc41a11b24375f19764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136836277321585926
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -38,10 +38,11 @@ public class EnemyController : MonoBehaviour {
                 //  transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal) * transform.rotation;
             }
         }
+        //set helth based on plat=yer points
         Health = 100f;
         maxHealth = Health;
-        //set speed based on player points
-        originalSpeed = agent.speed;
+        //set speed based on Helath
+
 
         InvokeRepeating("Hurt", 0f, 5f); // temporary will be replaced by anim
     }
@@ -65,7 +66,14 @@ public class EnemyController : MonoBehaviour {
         {
             Fight();
         }
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Hurt();
+        }
     }
 
     void NewLocation()
@@ -105,6 +113,14 @@ public class EnemyController : MonoBehaviour {
             Health = Health - 5f; //replace 5f with anim reference float
             Debug.Log(Health);
             //setspeedbased on helth
+            agent.speed = agent.speed - 50f;
+            agent.speed = agent.speed * .3f;
+            agent.speed = Mathf.Pow(agent.speed, 1 / 3);
+            agent.speed = agent.speed * -1.1f;
+            agent.speed = agent.speed + 4.4f;
+            Debug.Log(agent.speed);
+                                    //agent.speed = (-1.1 * ((.3f * (Health - 50f)) ^ (1f / 3f)) + 4.4f);
+
             //set size based on health
 
 
