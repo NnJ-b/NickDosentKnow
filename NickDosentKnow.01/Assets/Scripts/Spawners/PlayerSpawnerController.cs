@@ -9,7 +9,7 @@ public class PlayerSpawnerController : MonoBehaviour
     public Terrain terrain;
     public LayerMask ground;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
         terrain = GameObject.FindGameObjectWithTag("Ground").GetComponent<Terrain>();
         Ray ray = new Ray(transform.position, Vector3.down);

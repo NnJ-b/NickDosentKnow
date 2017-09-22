@@ -11,8 +11,8 @@ public class Player_Controller : MonoBehaviour {
     public LayerMask moveMask;
     public LayerMask interactMask;
     PlayerMotor motor;
-    public Transform selected;
-    private Transform prevSelected;
+    public GameObject selected;
+    private GameObject prevSelected;
     public LayerMask ground;
 
     //standard veriables
@@ -47,7 +47,7 @@ public class Player_Controller : MonoBehaviour {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-           if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1)==false)
+           if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1) == false)
            {
                 if (Physics.Raycast(ray, out hit, 500f))
                 {
@@ -55,24 +55,54 @@ public class Player_Controller : MonoBehaviour {
                     {
                         selected = null;
                         motor.MoveToPoint(hit.point);
+                        if(prevSelected != null)
+                        {
+                            PopDown();
+                        }
                     }
                     if (hit.collider.tag == "Interactable")
                     {
                         Interactable focus = hit.collider.GetComponent<Interactable>();
-                        selected = hit.collider.transform;
+                        selected = hit.collider.gameObject;
                         motor.MoveToSelected(focus);
+                        if(prevSelected != null)
+                        {
+                            PopDown();
+                        }
+                        Debug.Log(hit.collider.name);
                     }
                     if (hit.collider.tag == "Enemy")
                     {
-                        Interactable focus = hit.collider.GetComponent<Interactable>();
-                        selected = hit.collider.transform;
-                        motor.MoveToSelected(focus);
-                        
+                        EnemyInt enemy = hit.collider.GetComponent<EnemyInt>();
+                        selected = hit.collider.gameObject;
+                        motor.MoveToEnemy(enemy);
+                        if (prevSelected != null)
+                        {
+                            PopDown();
+                        }
+
                     }
                 }
            }
         }
-        //popup controll
+        if(selected != null && selected.tag == "Interactable" && selected !=prevSelected)
+        {
+            PopUpCont(selected);
+        }
+        
 
+    }
+    void PopUpCont(GameObject Selected)
+    {
+        if(Vector3.Distance(transform.position,Selected.transform.position) < 5f)
+        {
+            selected.GetComponentInChildren<Animator>().SetBool("IsSelected", true);
+            prevSelected = selected;
+        }
+    }
+    void PopDown()
+    {
+        prevSelected.GetComponentInChildren<Animator>().SetBool("IsSelected", false);
+        prevSelected = null;
     }
 }

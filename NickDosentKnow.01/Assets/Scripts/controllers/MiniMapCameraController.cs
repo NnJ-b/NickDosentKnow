@@ -19,6 +19,6 @@ public class MiniMapCameraController : MonoBehaviour {
     {
         targetLocation = new Vector3(player.position.x, height, player.position.z);
         transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetLocation.x,updateSpeed),transform.position.y,Mathf.Lerp(transform.position.z,targetLocation.z,updateSpeed));
-        
+        //transform.rotation = new Quaternion(transform.rotation.x, mainCam.transform.rotation.y, transform.rotation.z, transform.rotation.w);
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class FarmSetter : MonoBehaviour {
 
     public LayerMask ground;
-	// Use this for initialization
 	void Awake ()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
