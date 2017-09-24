@@ -7,10 +7,23 @@ using UnityEngine.AI;
 public class PlayerMotor : MonoBehaviour {
 
     NavMeshAgent agent;
+    public Player_Controller controller;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        controller = GetComponent<Player_Controller>();
+    }
+
+    private void Update()
+    {
+        if (controller.selected !=null && controller.selected.tag == "Enemy")
+        {
+            MoveToEnemy(controller.selected.GetComponent<EnemyInt>());
+            //look at enemy
+            //Vector3 targetVector = new Vector3(transform.position.x, controller.selected.transform.position.y, transform.position.z);
+            //transform.LookAt(targetVector);
+        }
     }
 
     public void MoveToPoint(Vector3 point)

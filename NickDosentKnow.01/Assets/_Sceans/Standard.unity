@@ -504,32 +504,41 @@ Prefab:
     - target: {fileID: 114874764865558784, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114874764865558784, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114458544329642932, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114458544329642932, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114753188173170148, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114753188173170148, guid: 9227307b6a966524791808918334d0ee,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224041218910817148, guid: 9227307b6a966524791808918334d0ee,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -119.8999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707423894574938, guid: 9227307b6a966524791808918334d0ee, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9227307b6a966524791808918334d0ee, type: 2}
