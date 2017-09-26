@@ -21,12 +21,12 @@ public class BarracksInt : MonoBehaviour {
             {
                 transform.position = new Vector3(transform.position.x, hit.point.y + heightAdder, transform.position.z);
             }
-            else
-            {
-                NS.spawnNode();
-                Debug.Log("newSpot");
-                Destroy(this);
-            }
+            //else
+            //{
+            //    NS.spawnNode();
+            //    Debug.Log("newSpot");
+            //    Destroy(this);
+            //}
         }
         gos = GameObject.FindGameObjectsWithTag("Interactable");
         foreach (GameObject go in gos)

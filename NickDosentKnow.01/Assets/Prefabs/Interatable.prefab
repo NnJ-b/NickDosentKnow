@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a6fd4df1f4df4f40beca168f7d550bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goParent: {fileID: 1792439031341962}
+  goParentInt: {fileID: 0}
   offset: {x: 74.45, y: 72.17}
   anim: {fileID: 95790851443503842}
   farmButton: {fileID: 114257299569938980}
@@ -702,7 +702,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 2
   heightAdder: 1
-  NS: {fileID: 114211996803445390, guid: d9017a3e625cd2f449e6f421ec137740, type: 2}
+  spacing: 10
+  dist: 0
 --- !u!114 &114637118493373354
 MonoBehaviour:
   m_ObjectHideFlags: 1
