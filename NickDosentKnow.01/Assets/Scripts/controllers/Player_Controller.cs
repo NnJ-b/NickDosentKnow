@@ -71,6 +71,12 @@ public class Player_Controller : MonoBehaviour {
                         }
                         Debug.Log(hit.collider.name);
                     }
+                    if(hit.collider.tag == "Barracks")
+                    {
+                        BarracksInt barr = hit.collider.GetComponent<BarracksInt>();
+                        selected = hit.collider.gameObject;
+                        motor.MoveToBarracks(barr);
+                    }
                     if (hit.collider.tag == "Enemy")
                     {
                         EnemyInt enemy = hit.collider.GetComponent<EnemyInt>();

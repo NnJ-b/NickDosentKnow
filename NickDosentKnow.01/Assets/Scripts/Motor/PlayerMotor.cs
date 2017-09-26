@@ -39,6 +39,11 @@ public class PlayerMotor : MonoBehaviour {
         agent.SetDestination(focus.transform.position);
         
     }
+    public void MoveToBarracks(BarracksInt barr)
+    {
+        agent.stoppingDistance = barr.radius * .8f;
+        agent.SetDestination(barr.transform.position);
+    }
     public void MoveToEnemy(EnemyInt Enemy)
     {
         agent.stoppingDistance = Enemy.radius * .8f;

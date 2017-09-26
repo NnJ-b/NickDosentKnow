@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PopUpController : MonoBehaviour {
 
-    public GameObject goParent;
+    public GameObject goParentInt;
     public Vector2 offset;
     private RectTransform rt;
     private Camera cam;
@@ -21,7 +21,7 @@ public class PopUpController : MonoBehaviour {
     {
         cam = Camera.main;
         rt = GetComponent<RectTransform>();
-        goParent = transform.parent.parent.gameObject;
+        goParentInt = transform.parent.parent.gameObject;
         anim = transform.parent.GetComponent<Animator>();
 
         farmButton.onClick.AddListener(instFarm);
@@ -30,20 +30,21 @@ public class PopUpController : MonoBehaviour {
 	
 	void instFarm ()
     {
-        GameObject go = Instantiate(farmPre,new Vector3(goParent.transform.position.x, 9999f, goParent.transform.position.z), Quaternion.identity,null);
-        Destroy(goParent);
+        GameObject go = Instantiate(farmPre,new Vector3(goParentInt.transform.position.x, 9999f, goParentInt.transform.position.z), Quaternion.identity,null);
+        Destroy(goParentInt);
     }
 
     void instBarr()
     {
-       // GameObject go = (GameObject)Instantiate(barrPre,transform.parent.parent.transform);
+        GameObject go = Instantiate(barrPre, new Vector3(goParentInt.transform.position.x, 9999f, goParentInt.transform.position.z), Quaternion.identity, null);
+        Destroy(goParentInt);
     }
 
 	void Update ()
     {
-		if (goParent != null)
+		if (goParentInt != null)
         {
-            Vector2 pos = RectTransformUtility.WorldToScreenPoint(cam,goParent.transform.position);
+            Vector2 pos = RectTransformUtility.WorldToScreenPoint(cam,goParentInt.transform.position);
             rt.position = pos + offset; 
         }
 	}

@@ -9,6 +9,8 @@ TagManager:
   - ScoreText
   - ScoreAbreviation
   - Enemy
+  - NS
+  - Barracks
   layers:
   - Default
   - TransparentFX
