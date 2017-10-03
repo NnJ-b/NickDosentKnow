@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114189753646233910}
   - component: {fileID: 114275460205005624}
   - component: {fileID: 23261228511063320}
+  - component: {fileID: 208698904030125220}
   m_Layer: 0
   m_Name: Barracks
   m_TagString: Barracks
@@ -124,3 +125,18 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 256
+--- !u!208 &208698904030125220
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1674663440722268}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
