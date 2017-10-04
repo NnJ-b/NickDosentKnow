@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 65924748723290418}
   - component: {fileID: 23048614565869032}
   - component: {fileID: 114575497456848482}
+  - component: {fileID: 208898223755876972}
   m_Layer: 0
   m_Name: Interatable
   m_TagString: Interactable
@@ -369,7 +370,7 @@ MonoBehaviour:
   farmButton: {fileID: 114257299569938980}
   barraacksButton: {fileID: 114761782649113648}
   farmPre: {fileID: 1323040824311272, guid: 953a0d3ed6136e9439cac7719a5a33ca, type: 2}
-  barrPre: {fileID: 1674663440722268, guid: 09a7341f2e1ce954293a2534e6c4a764, type: 2}
+  barrPre: {fileID: 1090546598513980, guid: 92b8068dbc420fa4988fd6a3f4903ebf, type: 2}
 --- !u!114 &114152172990527772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -820,6 +821,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!208 &208898223755876972
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792439031341962}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 2.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!222 &222029452129452416
 CanvasRenderer:
   m_ObjectHideFlags: 1
