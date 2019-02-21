@@ -16,7 +16,7 @@ public class RuntimeTerainGenerator : MonoBehaviour {
     private void OnEnable()
     {
         HM = Random.Range(2, 10);
-        divRange = Random.Range(15, 15);
+        divRange = Random.Range(10, 15);
         TerrrainNavMesh = GetComponent<NavMeshSurface> ();
         terrain = GameObject.FindGameObjectWithTag("Ground").GetComponent<Terrain>();
         GenerateTerrain(terrain,HM);
